@@ -14,12 +14,12 @@
         retries: 5
         delay: 30
 
-      - name: Check webservice application production
+      - name: Check webservice application preProduction
         uri:
           url: http://{{ ip_addr_preprod }}:{{ port_app }}/health
           method: GET
-        retries: 5
-        delay: 30
+        retries: 8
+        delay: 40
       tags:
        - preprod
 

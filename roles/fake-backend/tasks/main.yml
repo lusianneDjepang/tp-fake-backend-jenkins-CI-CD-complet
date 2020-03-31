@@ -73,7 +73,7 @@
 # docker network
 - name: Create docker network to interconnect containers
   docker_network:
-    name: battleboat-network
+    name: battleboat
   tags:
     - preprod
     - prod
@@ -94,7 +94,7 @@
       MYSQL_USER: "battleuser"
       MYSQL_PASSWORD: "battlepass"
     networks:
-      - name: "battleboat-network"
+      - name: "battleboat"
     ports:
       - "3306:3306"
   tags:
@@ -111,7 +111,7 @@
     state: "started"
     restart_policy: "always"
     networks:
-      - name: "battleboat-network"
+      - name: "battleboat"
     volumes:
       - "{{ home }}/application-battleboat/battleboat:/etc/backend/static"
     env:

@@ -71,9 +71,18 @@
     - prod
 
 # docker network
+- name: Purge existing docker network to interconnect containers
+  docker_network:
+    name: battleboat-network
+    purge_networks: yes
+
+  tags:
+    - preprod
+    - prod
+    
+  # docker network
 - name: Create docker network to interconnect containers
   docker_network:
-    purge_networks: "no"
     name: battleboat-network
   tags:
     - preprod

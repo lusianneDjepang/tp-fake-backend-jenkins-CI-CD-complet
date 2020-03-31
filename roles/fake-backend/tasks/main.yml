@@ -73,6 +73,7 @@
 # docker network
 - name: Create docker network to interconnect containers
   docker_network:
+    purge_networks: "no"
     name: battleboat-network
   tags:
     - preprod

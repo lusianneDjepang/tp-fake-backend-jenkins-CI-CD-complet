@@ -1,6 +1,6 @@
 ---
 - name: Ensure application is deployed
-  hosts: localhost
+  hosts: prod preprod
 
   become: true
   vars_files:

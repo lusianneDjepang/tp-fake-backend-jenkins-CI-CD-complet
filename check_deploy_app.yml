@@ -34,8 +34,9 @@
         uri:
           url: http://{{ ip_addr_prod }}:{{ port_app }}/health
           method: GET
-        timeout: 20s
-        retries: 5
-        #start_period: 30s
+        register: _result
+        until: _result.status == 200
+        retries: 720 # 720 * 5 seconds = 1hour (60*60/5)
+        delay: 5 # Every 5 second
       tags:
         - prod
